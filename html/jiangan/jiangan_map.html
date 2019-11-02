@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>江安校区</title>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/htmleaf-demo.css">
+    <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+<style type="text/css">
+.amap-marker-label{
+    width: auto;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    height: 18px;
+    font-family: STLiti;
+    color: rgba(255,228,0,1.00);
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.3);
+    border: solid 2px rgba(191,193,111,0.5);
+}
+</style>
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=d76b2fec132210ab7f886e54baf7a854&plugin=Map3D,ElasticMarker"></script>
+<script type="text/javascript" src="../../js/jiangan_sheshi.js"></script>
+</head>
+<body>
+	
+<header class="codrops-header">
+			<div class="codrops-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="../../index.html" title="主页" target="_top"><span> 主页</span></a>
+				
+			</div>
+		  <h1 class="codrops-header__title">WLCOME TO SCU-JIANGAN</h1>
+<p class="ie-message">请升级浏览器 <a href="http://caniuse.com/#search=clip-path">CSS clip-path property</a>.</p>
+			<nav class="dummy-links">
+				<a class="dummy-links__link dummy-links__link--current" href="#">Home</a>
+				<a class="dummy-links__link" href="#">Stories</a>
+				<a class="dummy-links__link" href="#">Contact</a>
+			</nav>
+		</header>
+<div id="container" ></div>
+
+	
+	
+	
+<script>
+    //缩放地图看看！！！
+    var map = new AMap.Map('container', {
+		mapStyle:'amap://styles/688012561747fea0c027fe8490e8dcd1',
+        viewMode:'3D',
+        turboMode:false,
+        showIndoorMap:false,
+        defaultCursor:'pointer',
+        showBuildingBlock:false,
+        zooms:[4,16],
+        showLabel:false,
+        zoom:4,
+        pitch:55,
+        center:[104.006484,30.560149],
+        forceVector:true,
+    });
+ 
+map.on('complete',function(){setTimeout(function(){map.setZoom(14)},1000)})
+   var zoomStyleMapping1 = {
+            14:0,
+            15:0,
+            16:0,
+            17:0,
+            18:0,
+            19:0,
+            20:0    
+    }
+ 
+   var spots = [];
+   var zoomStyleMapping2 = {
+            14:0,
+            15:0,
+            16:1,
+            17:1,
+            18:1,
+            19:1,
+            20:1    
+    }
+   for(var i=0;i<touristSpots.length;i+=1){
+        var marker = new AMap.ElasticMarker({
+            position:touristSpots[i].position,
+            zooms:[14,20],
+            styles:[{
+                    icon:{
+                        img:touristSpots[i].smallIcon,
+                        size:[16,16],//可见区域的大小
+                        ancher:[8,16],//锚点
+                        fitZoom:14,//最合适的级别
+                        scaleFactor:2,//地图放大一级的缩放比例系数
+                        maxScale:1.5,//最大放大比例
+                        minScale:0.4//最小放大比例
+						
+                    },
+                    label:{
+                        content:touristSpots[i].name,
+                        offset:[-35,0],
+                        position:'BM',
+                        minZoom:15
+                    }
+                },{
+                    icon:{
+                        img:touristSpots[i].bigIcon,
+                        size:touristSpots[i].size,
+                        ancher:touristSpots[i].ancher,
+                        fitZoom:17.5,
+                        scaleFactor:2,
+                        maxScale:1.5,
+                        minScale:0.125
+                    },
+                    label:{
+                        content:touristSpots[i].name,
+                        offset: [-35,0],
+                        position:'BM'
+                    }
+                }],
+			clickable:true,
+            zoomStyleMapping:zoomStyleMapping2
+        })
+		
+		if(i==0)
+		marker.on('click',function(){		
+			window.location.href='dongmen.html';
+		});
+	   if(i==1)
+		marker.on('click',function(){		
+			window.location.href='bugaoshan.html';
+		});
+	   if(i==2)
+		marker.on('click',function(){		
+			window.location.href='disanshitang.html';
+		});
+        spots.push(marker);
+   }
+	
+   map.add(spots)
+
+  
+  
+   
+</script>
+
+	     	
+		  	
+	
+</body>
+</html>

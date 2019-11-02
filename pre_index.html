@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>欢迎来到四川大学</title>
+<link rel="stylesheet" type="text/css" href="css/background.css"/>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+ 
+</head>
+
+<body>
+	<script>
+	$(document).ready(function(){
+			$("#welcome1").fadeIn(1000);
+		$("#welcome2").fadeIn(3000);
+			$("#logo").fadeIn(5000);
+	
+		});
+	</script>
+   <video autoplay="autoplay" loop poster="img/pre.png" id="bgvid">
+	   <source src="img/bgvideo.mp4" type="video/mp4">
+	   <source src="img/bgvideo.webm" type="video/webm">
+	</video>
+	
+		<h1 id="welcome1" style="display: none;position: fixed;top: 10%;left: 50%;transform: translate(-50%,-90%);font-size: 500%; color: #F7F263;font-family: "微软雅黑"" >欢迎来到四川大学</h1>
+		<h2  id="welcome2" style="display: none;z-index:2;position: fixed;top: 20%;left: 50%;transform: translate(-50%,-40%); color:#FAF209">WELCOME TO SCU</h2>
+	
+
+<!--	下面是进入按钮-->
+	
+<div id="logo"  style="display: none;position:fixed;top: 50%;left:50%;transform: translate(-50%,-20%);opacity: 0.5"  ><a href="index.html">
+	<img src="img/SCUlogo.png";alt="点击进入四川大学"></a>
+	</div>
+				
+	
+	
+	
+</body>
+</html>
